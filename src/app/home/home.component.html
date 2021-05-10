@@ -1,0 +1,25 @@
+<div class="home">
+    <div class="header">
+        <h3>Documents</h3>
+        <p>Search document or select category</p>
+    </div>
+    <div class="body">
+        <div class="category-list">
+            <ul *ngFor = "let category of categoryListArray">
+                <li [ngClass]="{'active': selectedCategory == category}"><a (click)="selectCategory(category)">{{category}}</a></li>
+            </ul>
+        </div>
+        <div class="document">
+            <div class="document-search">
+                <form [formGroup]="documentSearchForm" (ngSubmit)="onDocumentSearch()">    
+                    <div class="search-box-container">
+                        <input id="search-query" type="text" placeholder="Start typing document name..." [(ngModel)]="searchQuery" formControlName="documentSearchQuery" />
+                    </div>
+                </form>
+            </div>
+            <div class="results-container">
+                <app-document [documentArray]="documentFilteredArray"></app-document>
+            </div>
+        </div>
+    </div>
+</div>

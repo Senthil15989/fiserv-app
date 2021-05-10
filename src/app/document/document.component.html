@@ -1,0 +1,8 @@
+<div class="document" *ngIf="documentArray.length > 0">
+    <div *ngFor="let document of documentArray">
+        <div class="document-card">
+            <div class="document-type" [style.background-color]="getBackgroundColor(document.type)"><span>{{document.type}}</span></div>
+            <h3>{{document.name}}</h3>
+        </div>
+    </div>
+</div>
